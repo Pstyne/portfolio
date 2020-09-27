@@ -14,11 +14,9 @@ class WorksController < ApplicationController
   def create
     @portfolio_item = Work.new(params.require(:work).permit(:title, :subtitle, :body))
     if @portfolio_item.save
-      flash[:success] = "Portfolio item was successfully created!"
-      redirect_to works_path
+      redirect_to works_path, notice: "Portfolio item was successfully created!"
     else
-      flash[:danger] = "Could not create portfolio item."
-      render "new"
+      render "new", notice: "Could not create portfolio item."
     end
   end
 
@@ -29,11 +27,15 @@ class WorksController < ApplicationController
   def update
     @portfolio_item = Work.find(params[:id])
     if @portfolio_item.update(params.require(:work).permit(:title, :subtitle, :body))
-      flash[:success] = "Portfolio item was successfully updated!"
-      redirect_to works_path
+      redirect_to works_path, notice: "Portfolio item was successfully updated!"
     else
-      flash[:danger] = "Could not update portfolio item."
-      render "edit"
+      render "edit", notice: "Could not update portfolio item."
     end
+  end
+
+  def destroy
+    @portfolio_item = Work.find(params[:id])
+    @portfolio_item.destroy
+    redirect_to works_path, notice: "Portfolio item was successfully deleted!"
   end
 end
