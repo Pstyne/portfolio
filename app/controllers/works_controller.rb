@@ -9,10 +9,11 @@ class WorksController < ApplicationController
 
   def new
     @portfolio_item = Work.new
+    3.times { @portfolio_item.technologies.build }
   end
 
   def create
-    @portfolio_item = Work.new(params.require(:work).permit(:title, :subtitle, :body))
+    @portfolio_item = Work.new(params.require(:work).permit(:title, :subtitle, :body, technologies_attributes: []))
     if @portfolio_item.save
       redirect_to works_path, notice: "Portfolio item was successfully created!"
     else
@@ -26,7 +27,7 @@ class WorksController < ApplicationController
 
   def update
     @portfolio_item = Work.find(params[:id])
-    if @portfolio_item.update(params.require(:work).permit(:title, :subtitle, :body))
+    if @portfolio_item.update(params.require(:work).permit(:title, :subtitle, :body, technologies_attributes: []))
       redirect_to works_path, notice: "Portfolio item was successfully updated!"
     else
       render "edit", notice: "Could not update portfolio item."
