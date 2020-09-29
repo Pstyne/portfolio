@@ -1,10 +1,11 @@
 class WorksController < ApplicationController
+  before_action :set_portfolio, only: [:show, :edit, :update, :destroy] 
+  
   def index
     @portfolio_items = Work.all
   end
 
   def show
-    @portfolio_item = Work.find(params[:id])
   end
 
   def new
@@ -13,7 +14,7 @@ class WorksController < ApplicationController
   end
 
   def create
-    @portfolio_item = Work.new(params.require(:work).permit(:title, :subtitle, :body, technologies_attributes: []))
+    @portfolio_item = Work.new(portfolio_params)
     if @portfolio_item.save
       redirect_to works_path, notice: "Portfolio item was successfully created!"
     else
@@ -22,12 +23,10 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @portfolio_item = Work.find(params[:id])
   end
 
   def update
-    @portfolio_item = Work.find(params[:id])
-    if @portfolio_item.update(params.require(:work).permit(:title, :subtitle, :body, technologies_attributes: []))
+    if @portfolio_item.update(portfolio_params)
       redirect_to works_path, notice: "Portfolio item was successfully updated!"
     else
       render "edit", notice: "Could not update portfolio item."
@@ -35,8 +34,20 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @portfolio_item = Work.find(params[:id])
     @portfolio_item.destroy
     redirect_to works_path, notice: "Portfolio item was successfully deleted!"
   end
+
+  private
+
+    def set_portfolio
+      @portfolio_item = Work.find(params[:id])
+    end
+
+    def portfolio_params
+      params.require(:work).permit(:title, 
+                                   :subtitle, 
+                                   :body, 
+                                   technologies_attributes: [:name])
+    end
 end
