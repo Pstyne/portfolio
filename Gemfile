@@ -49,4 +49,4 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap', '~> 4.5.2'
 gem 'jquery-rails'
-gem 'techsbirt_view_tool', git: "https://github.com/Pstyne/techsbirt_view_tool"
+gem 'techsbirt_view_tool', '~> 0.1.0'

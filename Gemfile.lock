@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/Pstyne/techsbirt_view_tool
-  revision: 01fec4994d8c796452b7c08cf2e8dc92066a590c
-  specs:
-    techsbirt_view_tool (0.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -187,6 +181,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    techsbirt_view_tool (0.1.0)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -230,7 +225,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   spring
   spring-watcher-listen (~> 2.0.0)
-  techsbirt_view_tool!
+  techsbirt_view_tool (~> 0.1.0)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
