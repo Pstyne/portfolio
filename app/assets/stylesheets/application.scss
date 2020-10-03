@@ -116,6 +116,13 @@ body {
   color: black;
 }
 
-.auth-links a {
-  color: black;
+.auth-links {
+  margin-top: 10px;
+  a {
+    color: black;
+  }
+} 
+
+.signup-link {
+  text-align: right;
 }
