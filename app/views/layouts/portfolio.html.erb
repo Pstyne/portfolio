@@ -17,7 +17,7 @@
 
     <main role="main">
 
-      <%= render "shared/portfolio_header" %>
+      <%= render "shared/portfolio_header" unless logged_in?(:site_admin) %>
 
       <div class="album py-5 bg-light">
         <div class="container">
