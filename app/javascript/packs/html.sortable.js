@@ -6,7 +6,7 @@
  *
  * Released under the MIT license.
  */
-var sortable = (function () {
+export var sortable = (function () {
   'use strict';
 
   /**
