@@ -7,6 +7,14 @@ class WorksController < ApplicationController
     @portfolio_items = Work.by_position
   end
 
+  def sort
+    params[:order].each do |key, value|
+      Work.find(value[:id]).update(position: value[:position])
+    end
+
+    head :ok
+  end
+
   def show
   end
 
