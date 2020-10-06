@@ -1,4 +1,4 @@
-import { sortable } from "./html.sortable"
+page = require "packs/html.sortable"
 ready = undefined
 set_positions = undefined
 
@@ -10,8 +10,8 @@ set_positions = ->
 
 ready = ->
   set_positions()
-  sortable(".sortable")
-  sortable(".sortable")[0].addEventListener 'sortupdate', (e, ui) -> 
+  page.sortable(".sortable")
+  page.sortable(".sortable")[0].addEventListener 'sortupdate', (e, ui) -> 
     updated_order = []
     set_positions()
     $(".card").each (i) ->
@@ -22,6 +22,9 @@ ready = ->
     $.ajax
       type: "PUT"
       url: "/works/sort"
+      beforeSend: (xhr) -> 
+        xhr.setRequestHeader 'X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')
+        return
       data: order: updated_order
     return
   return

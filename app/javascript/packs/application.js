@@ -10,7 +10,6 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery-ui")
 require("packs/html.sortable")
-require("packs/works")
 
 
 
