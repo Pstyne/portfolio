@@ -1,10 +1,11 @@
 <div class="album py-5 bg-light">
   <div class="container">
 
-    <div class="row">
+    <div class="row <%= "sortable" if logged_in?(:site_admin) %>">
 
       <%= render partial: 'portfolio_item', collection: @portfolio_items %>
       
     </div>
   </div>
 </div>
+<%= javascript_pack_tag 'works' if logged_in?(:site_admin) %>
