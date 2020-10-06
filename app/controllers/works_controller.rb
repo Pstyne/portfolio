@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy] 
   layout "portfolio"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :sort]}, site_admin: :all
   
   def index
     @portfolio_items = Work.by_position
