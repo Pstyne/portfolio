@@ -5,6 +5,8 @@
 
 import 'bootstrap'
 require("@rails/ujs").start()
+require("jquery-ui")
+require("packs/html.sortable")
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
