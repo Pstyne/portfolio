@@ -13,6 +13,14 @@
 
   <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <%= video_tag(
+        "hdd_vid.mp4",
+        id: "background",
+        autoplay: :autoplay,
+        loop: :loop,
+        muted: :muted,
+        poster: "home_bg.png"
+        ) %>
       <%= render "shared/application_nav" %>
       <%= yield %>
       <%= render "shared/application_footer" %>

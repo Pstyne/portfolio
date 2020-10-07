@@ -57,7 +57,9 @@ class WorksController < ApplicationController
     def portfolio_params
       params.require(:work).permit(:title, 
                                    :subtitle, 
-                                   :body, 
+                                   :body,
+                                   :main_image,
+                                   :thumb_image,
                                    technologies_attributes: [:name])
     end
 end
