@@ -10,7 +10,9 @@ require("channels")
 require("jquery-ui")
 require("packs/html.sortable")
 require("@nathanvda/cocoon")
+require("gritter/js/jquery.gritter.js")
 require("turbolinks").start()
+window.jQuery = $
 
 
 

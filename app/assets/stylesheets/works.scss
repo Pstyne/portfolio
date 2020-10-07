@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "jquery-ui";
+@import 'gritter';
 
 .jumbotron {
   padding-top: 3rem;
@@ -41,4 +42,13 @@ footer p {
 
 .its-my-name {
   margin-left: .5em;
+}
+
+/*
+ * Gritter
+ */
+
+.blog-gritter {
+  background-color: #000;
+  border-radius: 5px;
 }
