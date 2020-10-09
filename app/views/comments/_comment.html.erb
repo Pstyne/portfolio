@@ -2,11 +2,21 @@
   <div class="card">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-1">
-        
+        <div class="col-md-12">
+          <div>
+            <%= gravatar_helper comment.user %>
+            <span class="pl-1">
+              <%= comment.user.name %>
+            </span>
+            <span class="comment-ts float-right">
+              <%= distance_of_time_in_words(comment.created_at, Time.now) %> ago
+            </span>
+          </div>
         </div>
-        <div class="col-md-11">
-          <%= comment.content %>
+        <div class="col-md-12 pt-2">
+          <div>
+            <%= comment.content %>
+          </div>
         </div>
       </div>
     </div>
