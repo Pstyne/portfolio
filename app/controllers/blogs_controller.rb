@@ -1,11 +1,13 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :get_topics
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
   
   # GET /blogs
   # GET /blogs.json
   def index
+    @topics = Topic.all
     if logged_in?(:site_admin)
       @blogs = Blog.page(params[:page]).per(5).recent
     else
@@ -89,6 +91,10 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:id])
+    end
+
+    def get_topics
+      @topics = Topic.all
     end
 
     # Only allow a list of trusted parameters through.
