@@ -171,6 +171,24 @@ body {
   }
 }
 
+.app-card-container {
+  color: black;
+  text-align: left;
+  .card {
+    padding: 40px;
+    a {
+      color: black;
+    }
+    iframe {
+      width: 100%;
+    }
+  }
+}
+
+.profile-img {
+  border: 1px solid gray;
+}
+
 /*
  * Gritter
  */
