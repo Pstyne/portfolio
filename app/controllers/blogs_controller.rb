@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :get_topics
+  before_action :get_topics, except: [:update, :create, :destroy, :toggle_status]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
   
@@ -94,7 +94,7 @@ class BlogsController < ApplicationController
     end
 
     def get_topics
-      @topics = Topic.all
+      @sidebar_topics = Topic.with_blogs
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :get_topics
   layout "blog"
   def index
     @topics = Topic.all
@@ -12,4 +13,9 @@ class TopicsController < ApplicationController
       @blogs = @topic.blogs.published.page(params[:page]).per(5).recent
     end
   end
+
+  private
+    def get_topics
+      @sidebar_topics = Topic.with_blogs
+    end
 end
