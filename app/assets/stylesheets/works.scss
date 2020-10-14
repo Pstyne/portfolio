@@ -1,6 +1,15 @@
 @import "bootstrap";
 @import "jquery-ui";
 @import 'gritter';
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Ubuntu&display=swap');
+
+body {
+  font-family: 'Oxygen', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+  font-family: 'Ubuntu', sans-serif;
+}
 
 .jumbotron {
   padding-top: 3rem;
