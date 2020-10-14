@@ -2,10 +2,25 @@
   <div class="card">
     <h1>About Me</h1>
     <div class="row">
-      <div class="col-md-4">
-        <%= image_tag "20190913_102911.jpg", width: 250, alt: "Profile Image", class: "profile-img" %>
+      <div class="col-md-5">
+        <%= image_tag "20190913_102911.jpg", width: 300, alt: "Profile Image", class: "profile-img" %>
+        <div class="skills">
+          <% @skills.each do |skill| %>
+            <div class="skill">
+              <h4><%= skill.title %></h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning"
+                    role="progressbar"
+                    aria-valuenow="<%= skill.percent_util %>"
+                    aria-valuemax="100"
+                    style="width: <%= skill.percent_util %>%"
+                ></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-7">
         <p>My goal is to take your business to the next level with a web application having all the features you need! Clients don't want to get down to the tech savvy level if they don't want to and that's fair. I'm a good listener and can exchange ideas without all the jargon.</p>
         <p>I've been developing applications for the past few years and I know that if I take on a project I will do whatever it takes to make you happy with your product. I want to give your users an amazing experience, and you, an amazing product. Everyone should be happy.</p>
         <p>
