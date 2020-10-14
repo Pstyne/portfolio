@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import 'gritter';
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Ubuntu&display=swap');
 
 /*
  * Globals
@@ -30,6 +31,7 @@ a:hover {
 html,
 body {
   height: 100%;
+  font-family: 'Oxygen', sans-serif;
 }
 
 body {
@@ -85,6 +87,10 @@ body {
   .nav-masthead {
     float: right;
   }
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+  font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -169,6 +175,36 @@ body {
   a {
     color: green;
   }
+}
+
+.app-card-container {
+  color: black;
+  text-align: left;
+  .card {
+    padding: 40px;
+    a {
+      color: black;
+    }
+    iframe {
+      width: 100%;
+    }
+  }
+}
+
+#jobHistory {
+  .card {
+    padding: 0;
+    margin-bottom: 5px;
+  }
+}
+
+.profile-img {
+  border: 1px solid gray;
+}
+
+.skill {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /*
