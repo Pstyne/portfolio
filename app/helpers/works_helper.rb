@@ -12,4 +12,8 @@ module WorksHelper
       image_generator(height: "600", width: "400")
     end
   end
+
+  def link_generator type, item, icon
+    link_to(fa_icon("#{icon} 3x"), item[type], class: "pr-2", title: "View #{type.capitalize}", target: "_blank")
+  end
 end

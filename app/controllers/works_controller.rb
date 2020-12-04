@@ -57,6 +57,8 @@ class WorksController < ApplicationController
       params.require(:work).permit(:title, 
                                    :subtitle, 
                                    :body,
+                                   :demo,
+                                   :repo,
                                    :main_image,
                                    :thumb_image,
                                    technologies_attributes: [:id, :name, :_destroy])

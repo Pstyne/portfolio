@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-2">
   <div class="col-md-7">
     <%= image_tag portfolio_img(@portfolio_item.main_image, "main"), width: "100%" %>
   </div>
@@ -13,7 +13,11 @@
 
     <hr>
 
-    <h3>Technologies Used:</h3>
+    <%= link_generator "demo", @portfolio_item, "desktop" %>
+
+    <%= link_generator "repo", @portfolio_item, "github" %>
+
+    <h3 class="mt-2">Technologies Used:</h3>
     <% @portfolio_item.technologies.each do |t| %>
       <p><%= t.name %></p>
     <% end %>

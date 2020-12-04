@@ -3,6 +3,8 @@
     <%= image_tag portfolio_img(portfolio_item.thumb_image, "thumb"), width: "100%" %>
     <div class="card-body">
       <p class="card-text"><span><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></span> <%= portfolio_item.subtitle %></p>
+      <%= link_generator "demo", portfolio_item, "desktop" if portfolio_item.demo? %>
+      <%= link_generator "repo", portfolio_item, "github"  if portfolio_item.repo? %>
     </div>
   </div>
 </div>
