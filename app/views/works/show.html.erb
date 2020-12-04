@@ -13,9 +13,9 @@
 
     <hr>
 
-    <%= link_generator "demo", @portfolio_item, "desktop" %>
+    <%= link_generator "demo", @portfolio_item, "desktop" if @portfolio_item.demo? %>
 
-    <%= link_generator "repo", @portfolio_item, "github" %>
+    <%= link_generator "repo", @portfolio_item, "github" if @portfolio_item.repo? %>
 
     <h3 class="mt-2">Technologies Used:</h3>
     <% @portfolio_item.technologies.each do |t| %>
